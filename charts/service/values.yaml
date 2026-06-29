@@ -1,7 +1,7 @@
 # Default values — overridden per service in environments/{env}/{service}-values.yaml
 
 image:
-  repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-app
+  repository: ""   # set per service in environments/{env}/{service}-values.yaml
   tag: latest
   pullPolicy: Always
 

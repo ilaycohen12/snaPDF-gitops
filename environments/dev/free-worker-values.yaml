@@ -1,6 +1,10 @@
 # Dev values for the free-worker
 # Fixed 1 pod — no autoscaling, no ingress
 
+image:
+  repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-worker
+  tag: latest
+
 replicas: 1
 
 ingress:

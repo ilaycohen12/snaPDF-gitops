@@ -1,6 +1,10 @@
 # Dev values for the API service
 # Overrides charts/service/values.yaml defaults
 
+image:
+  repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-api
+  tag: latest
+
 replicas: 1
 
 ingress:
