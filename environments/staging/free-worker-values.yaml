@@ -1,0 +1,18 @@
+# Staging values for the free-worker
+# Fixed 1 pod — no autoscaling, no ingress
+
+replicas: 1
+
+ingress:
+  enabled: false
+
+hpa:
+  enabled: false
+
+keda:
+  enabled: false
+
+eso:
+  enabled: true
+
+env: {}

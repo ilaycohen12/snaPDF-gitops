@@ -1,0 +1,19 @@
+# Staging values for the API service
+# Staging runs in the dev cluster, staging namespace
+
+replicas: 1
+
+ingress:
+  enabled: true
+  path: /api
+
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 70
+
+eso:
+  enabled: true
+
+env: {}

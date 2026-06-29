@@ -1,0 +1,18 @@
+# Prod values for the auth service
+
+replicas: 2
+
+ingress:
+  enabled: true
+  path: /auth
+
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 60
+
+eso:
+  enabled: true
+
+env: {}
