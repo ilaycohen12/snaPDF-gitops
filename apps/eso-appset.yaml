@@ -1,0 +1,3 @@
+# ApplicationSet — generates ExternalSecret resources per environment
+# Tells ESO controller which secrets to fetch from AWS Secrets Manager per env
+# TODO: fill in during Phase 4

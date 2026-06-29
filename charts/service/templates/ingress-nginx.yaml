@@ -1,0 +1,4 @@
+# Rendered only if ingress.enabled=true (api and auth services only)
+# Nginx Ingress — routes /api/* and /auth/* paths to the correct service
+# The AWS ALB sits in front of Nginx (created separately via ALB Controller)
+# TODO: fill in during Phase 3

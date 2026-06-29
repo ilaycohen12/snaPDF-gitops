@@ -1,0 +1,3 @@
+# Rendered only if hpa.enabled=true (api only)
+# HPA — scales api pods based on CPU utilization
+# TODO: fill in during Phase 3

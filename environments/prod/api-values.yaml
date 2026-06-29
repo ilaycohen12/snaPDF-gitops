@@ -1,0 +1,19 @@
+# Prod values for the API service — larger resources, more replicas
+# TODO: fill in when prod is set up
+
+replicas: 2
+
+ingress:
+  enabled: true
+  path: /api
+
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 60
+
+eso:
+  enabled: true
+
+env: {}

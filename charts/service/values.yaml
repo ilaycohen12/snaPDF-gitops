@@ -1,0 +1,43 @@
+# Default values — overridden per service in environments/{env}/{service}-values.yaml
+
+image:
+  repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-app
+  tag: latest
+  pullPolicy: Always
+
+replicas: 1
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+env: {}
+
+# Ingress — only enabled for services that receive HTTP traffic (api, auth)
+ingress:
+  enabled: false
+  path: /
+
+# HPA — only for api
+hpa:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
+
+# KEDA ScaledObject — only for signed-worker
+keda:
+  enabled: false
+  minReplicaCount: 0
+  maxReplicaCount: 3
+  queueURL: ""
+  queueLength: "10"
+
+# ESO ExternalSecret — fetch secrets from AWS Secrets Manager
+eso:
+  enabled: false
+  secrets: []

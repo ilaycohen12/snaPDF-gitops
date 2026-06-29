@@ -1,0 +1,20 @@
+# Dev values for the API service
+# Overrides charts/service/values.yaml defaults
+
+replicas: 1
+
+ingress:
+  enabled: true
+  path: /api
+
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 70
+
+eso:
+  enabled: true
+
+# env vars injected into the pod — TODO: fill queue URLs and DB details after apply
+env: {}

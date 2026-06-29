@@ -1,0 +1,4 @@
+# ArgoCD Application — installs Nginx Ingress Controller via Helm
+# Nginx runs inside the cluster and handles path-based routing
+# Traffic flow: Internet → AWS ALB → Nginx pod → api-service / auth-service
+# TODO: fill in during Phase 4

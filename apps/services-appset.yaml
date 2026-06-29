@@ -1,0 +1,3 @@
+# ApplicationSet — generates one ArgoCD Application per service per environment
+# Watches environments/{env}/{service}-values.yaml and deploys charts/service with those values
+# TODO: fill in during Phase 4

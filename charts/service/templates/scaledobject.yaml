@@ -1,0 +1,4 @@
+# Rendered only if keda.enabled=true (signed-worker only)
+# KEDA ScaledObject — scales signed-worker based on SQS queue depth
+# 0 messages = 0 pods, scales up to maxReplicaCount under load
+# TODO: fill in during Phase 3
