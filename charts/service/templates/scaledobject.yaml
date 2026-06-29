@@ -1,4 +1,17 @@
-# Rendered only if keda.enabled=true (signed-worker only)
-# KEDA ScaledObject — scales signed-worker based on SQS queue depth
-# 0 messages = 0 pods, scales up to maxReplicaCount under load
-# TODO: fill in during Phase 3
+{{- if .Values.keda.enabled }}
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  scaleTargetRef:
+    name: {{ .Release.Name }}
+  minReplicaCount: {{ .Values.keda.minReplicaCount }}
+  maxReplicaCount: {{ .Values.keda.maxReplicaCount }}
+  triggers:
+    - type: aws-sqs-queue
+      metadata:
+        queueURL: {{ .Values.keda.queueURL }}
+        queueLength: {{ .Values.keda.queueLength | quote }}
+        awsRegion: us-east-1
+{{- end }}
