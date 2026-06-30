@@ -1,3 +1,24 @@
-# ApplicationSet — generates ExternalSecret resources per environment
-# Tells ESO controller which secrets to fetch from AWS Secrets Manager per env
-# TODO: fill in during Phase 4
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: eso-clustersecretstore
+  namespace: argocd
+spec:
+  generators:
+    - clusters: {}
+  template:
+    metadata:
+      name: eso-{{name}}
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/ilaycohen12/snaPDF-gitops.git
+        targetRevision: HEAD
+        path: bootstrap/eso
+      destination:
+        server: '{{server}}'
+        namespace: external-secrets
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

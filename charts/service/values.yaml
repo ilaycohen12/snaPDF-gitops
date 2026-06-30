@@ -41,3 +41,7 @@ keda:
 eso:
   enabled: false
   secrets: []
+
+# ServiceAccount — IRSA annotation gives the pod its AWS IAM role
+serviceAccount:
+  roleArn: ""

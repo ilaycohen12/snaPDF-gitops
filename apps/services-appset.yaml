@@ -1,3 +1,49 @@
-# ApplicationSet — generates one ArgoCD Application per service per environment
-# Watches environments/{env}/{service}-values.yaml and deploys charts/service with those values
-# TODO: fill in during Phase 4
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: snapdf-services
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/ilaycohen12/snaPDF-gitops.git
+        revision: HEAD
+        directories:
+          - path: environments/dev/*
+          - path: environments/staging/*
+        template:
+          metadata: {}
+          spec:
+            destination:
+              server: https://kubernetes.default.svc
+    - git:
+        repoURL: https://github.com/ilaycohen12/snaPDF-gitops.git
+        revision: HEAD
+        directories:
+          - path: environments/prod/*
+        template:
+          metadata: {}
+          spec:
+            destination:
+              server: https://<prod-cluster-endpoint>
+  template:
+    metadata:
+      name: '{{path.basename}}-{{path[1]}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/ilaycohen12/snaPDF-gitops.git
+        targetRevision: HEAD
+        path: charts/service
+        helm:
+          valueFiles:
+            - /{{path}}/values.yaml
+      destination:
+        server: ''
+        namespace: '{{path[1]}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

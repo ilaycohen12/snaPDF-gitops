@@ -1,0 +1,24 @@
+# Staging values for the API service — runs on dev cluster, staging namespace
+image:
+  repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-api
+  tag: latest
+
+replicas: 1
+
+ingress:
+  enabled: true
+  path: /api
+
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 70
+
+eso:
+  enabled: true
+
+serviceAccount:
+  roleArn: "arn:aws:iam::086241318869:role/snapdf-dev-worker"
+
+env: {}

@@ -1,6 +1,4 @@
-# Dev values for the free-worker
-# Fixed 1 pod — no autoscaling, no ingress
-
+# Prod values for the free-worker
 image:
   repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-worker
   tag: latest
@@ -18,5 +16,8 @@ keda:
 
 eso:
   enabled: true
+
+serviceAccount:
+  roleArn: "arn:aws:iam::086241318869:role/snapdf-prod-worker"
 
 env: {}

@@ -1,0 +1,24 @@
+# Prod values for the API service — larger resources, more replicas
+image:
+  repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-api
+  tag: latest
+
+replicas: 2
+
+ingress:
+  enabled: true
+  path: /api
+
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 60
+
+eso:
+  enabled: true
+
+serviceAccount:
+  roleArn: "arn:aws:iam::086241318869:role/snapdf-prod-worker"
+
+env: {}

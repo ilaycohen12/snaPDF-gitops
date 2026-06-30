@@ -1,0 +1,23 @@
+# Staging values for the free-worker
+image:
+  repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-worker
+  tag: latest
+
+replicas: 1
+
+ingress:
+  enabled: false
+
+hpa:
+  enabled: false
+
+keda:
+  enabled: false
+
+eso:
+  enabled: true
+
+serviceAccount:
+  roleArn: "arn:aws:iam::086241318869:role/snapdf-dev-worker"
+
+env: {}

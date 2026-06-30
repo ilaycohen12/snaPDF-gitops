@@ -1,0 +1,27 @@
+# Dev values for the signed-worker
+# KEDA scales based on SQS signed queue depth — 0 to 3 pods
+image:
+  repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-worker
+  tag: latest
+
+replicas: 1
+
+ingress:
+  enabled: false
+
+hpa:
+  enabled: false
+
+keda:
+  enabled: true
+  minReplicaCount: 0
+  maxReplicaCount: 3
+  queueLength: "10"
+
+eso:
+  enabled: true
+
+serviceAccount:
+  roleArn: "arn:aws:iam::086241318869:role/snapdf-dev-worker"
+
+env: {}

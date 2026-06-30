@@ -1,6 +1,4 @@
 # Dev values for the API service
-# Overrides charts/service/values.yaml defaults
-
 image:
   repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-api
   tag: latest
@@ -20,5 +18,7 @@ hpa:
 eso:
   enabled: true
 
-# env vars injected into the pod — TODO: fill queue URLs and DB details after apply
+serviceAccount:
+  roleArn: "arn:aws:iam::086241318869:role/snapdf-dev-worker"
+
 env: {}
