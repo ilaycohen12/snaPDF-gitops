@@ -1,7 +1,7 @@
 # Dev values for the auth service
 image:
   repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-auth
-  tag: 0421610f72c7f69700b8659b07834838133cb234
+  tag: fd919fd196f7ed7b543e893b0d9195a3250d3073
 
 replicas: 1
 
