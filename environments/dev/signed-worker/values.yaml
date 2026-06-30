@@ -2,7 +2,7 @@
 # KEDA scales based on SQS signed queue depth — 0 to 3 pods
 image:
   repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-worker
-  tag: latest
+  tag: 477fe1c6ac0abdec0343e6a7726097e0d333f593
 
 replicas: 1
 
