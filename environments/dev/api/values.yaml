@@ -1,7 +1,7 @@
 # Dev values for the API service
 image:
   repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-api
-  tag: 2c69b661f72f324fa45b1be8b62c6b581fa8f883
+  tag: 29828be11f242074250ccb010b7ac9a9994bcfc3
 
 replicas: 1
 
