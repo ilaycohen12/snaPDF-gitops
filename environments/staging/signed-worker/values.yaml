@@ -16,11 +16,26 @@ keda:
   minReplicaCount: 0
   maxReplicaCount: 3
   queueLength: "10"
-
-eso:
-  enabled: true
+  queueURL: "https://sqs.us-east-1.amazonaws.com/086241318869/snapdf-dev-signed"
 
 serviceAccount:
   roleArn: "arn:aws:iam::086241318869:role/snapdf-dev-worker"
 
-env: {}
+env:
+  DB_NAME: "snapdf"
+  QUEUE_TYPE: "signed"
+  QUEUE_URL: "https://sqs.us-east-1.amazonaws.com/086241318869/snapdf-dev-signed"
+  S3_BUCKET: "snapdf-dev-pdfs-086241318869"
+
+eso:
+  enabled: true
+  secrets:
+    - secretKey: DB_HOST
+      remoteKey: snapdf/db-credentials
+      property: host
+    - secretKey: DB_USER
+      remoteKey: snapdf/db-credentials
+      property: username
+    - secretKey: DB_PASSWORD
+      remoteKey: snapdf/db-credentials
+      property: password

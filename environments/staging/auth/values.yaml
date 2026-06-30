@@ -15,7 +15,24 @@ hpa:
   maxReplicas: 3
   targetCPUUtilizationPercentage: 70
 
+serviceAccount:
+  roleArn: "arn:aws:iam::086241318869:role/snapdf-dev-worker"
+
+env:
+  API_URL: "http://k8s-ingressn-ingressn-3f6268c3d3-a2e0602d694b942f.elb.us-east-1.amazonaws.com/api"
+  DB_NAME: "snapdf"
+
 eso:
   enabled: true
-
-env: {}
+  secrets:
+    - secretKey: JWT_SECRET
+      remoteKey: snapdf/jwt-secret
+    - secretKey: DB_HOST
+      remoteKey: snapdf/db-credentials
+      property: host
+    - secretKey: DB_USER
+      remoteKey: snapdf/db-credentials
+      property: username
+    - secretKey: DB_PASSWORD
+      remoteKey: snapdf/db-credentials
+      property: password
