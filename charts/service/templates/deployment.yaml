@@ -23,6 +23,11 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 5000
+          envFrom:
+            {{- if and .Values.eso.enabled (gt (len .Values.eso.secrets) 0) }}
+            - secretRef:
+                name: {{ .Release.Name }}-secrets
+            {{- end }}
           env:
             {{- range $key, $value := .Values.env }}
             - name: {{ $key }}
