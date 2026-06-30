@@ -20,9 +20,22 @@ serviceAccount:
 
 env:
   AUTH_URL: "http://k8s-ingressn-ingressn-3f6268c3d3-a2e0602d694b942f.elb.us-east-1.amazonaws.com/auth"
+  DB_NAME: "snapdf"
+  SIGNED_QUEUE_URL: "https://sqs.us-east-1.amazonaws.com/086241318869/snapdf-dev-signed"
+  FREE_QUEUE_URL: "https://sqs.us-east-1.amazonaws.com/086241318869/snapdf-dev-free"
+  S3_BUCKET: "snapdf-dev-pdfs-086241318869"
 
 eso:
   enabled: true
   secrets:
     - secretKey: JWT_SECRET
       remoteKey: snapdf/jwt-secret
+    - secretKey: DB_HOST
+      remoteKey: snapdf/db-credentials
+      property: host
+    - secretKey: DB_USER
+      remoteKey: snapdf/db-credentials
+      property: username
+    - secretKey: DB_PASSWORD
+      remoteKey: snapdf/db-credentials
+      property: password
