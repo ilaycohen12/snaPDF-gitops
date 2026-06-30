@@ -15,7 +15,14 @@ hpa:
   maxReplicas: 3
   targetCPUUtilizationPercentage: 70
 
+env:
+  AUTH_USERNAME: "admin"
+  API_URL: "http://k8s-ingressn-ingressn-3f6268c3d3-a2e0602d694b942f.elb.us-east-1.amazonaws.com/api"
+
 eso:
   enabled: true
-
-env: {}
+  secrets:
+    - secretKey: AUTH_PASSWORD
+      remoteKey: snapdf/auth-credentials
+    - secretKey: JWT_SECRET
+      remoteKey: snapdf/jwt-secret
