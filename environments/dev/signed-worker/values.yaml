@@ -17,6 +17,7 @@ keda:
   minReplicaCount: 0
   maxReplicaCount: 3
   queueLength: "10"
+  queueURL: "https://sqs.us-east-1.amazonaws.com/086241318869/snapdf-dev-signed"
 
 serviceAccount:
   roleArn: "arn:aws:iam::086241318869:role/snapdf-dev-worker"
