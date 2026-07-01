@@ -24,8 +24,14 @@ keda:
 
 eso:
   enabled: true
+  # secrets list intentionally left empty for now — see api/values.yaml comment;
+  # blocked on prod-specific snapdf-prod/db-credentials.
 
 serviceAccount:
   roleArn: "arn:aws:iam::086241318869:role/snapdf-prod-worker"
 
-env: {}
+env:
+  DB_NAME: "snapdf"
+  QUEUE_TYPE: "free"
+  QUEUE_URL: "https://sqs.us-east-1.amazonaws.com/086241318869/snapdf-prod-free"
+  S3_BUCKET: "snapdf-prod-pdfs-086241318869"

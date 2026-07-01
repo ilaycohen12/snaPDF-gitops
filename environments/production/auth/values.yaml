@@ -25,5 +25,12 @@ hpa:
 
 eso:
   enabled: true
+  # secrets list intentionally left empty for now — see api/values.yaml comment;
+  # blocked on prod-specific snapdf-prod/db-credentials and snapdf-prod/jwt-secret.
 
-env: {}
+serviceAccount:
+  roleArn: "arn:aws:iam::086241318869:role/snapdf-prod-worker"
+
+env:
+  API_URL: "<prod-ingress-host>/api"
+  DB_NAME: "snapdf"

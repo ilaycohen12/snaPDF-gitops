@@ -25,8 +25,19 @@ hpa:
 
 eso:
   enabled: true
+  # secrets list intentionally left empty for now — blocked on prod-specific
+  # snapdf-prod/db-credentials and snapdf-prod/jwt-secret existing (see
+  # documentation.md and snaPDF-infra issue for the "apply prod" work).
+  # Reusing dev's snapdf/db-credentials or snapdf/jwt-secret here would be wrong:
+  # different RDS instance for the DB creds, and a security issue reusing the
+  # same JWT signing key across environments.
 
 serviceAccount:
   roleArn: "arn:aws:iam::086241318869:role/snapdf-prod-worker"
 
-env: {}
+env:
+  AUTH_URL: "<prod-ingress-host>/auth"
+  DB_NAME: "snapdf"
+  SIGNED_QUEUE_URL: "https://sqs.us-east-1.amazonaws.com/086241318869/snapdf-prod-signed"
+  FREE_QUEUE_URL: "https://sqs.us-east-1.amazonaws.com/086241318869/snapdf-prod-free"
+  S3_BUCKET: "snapdf-prod-pdfs-086241318869"
