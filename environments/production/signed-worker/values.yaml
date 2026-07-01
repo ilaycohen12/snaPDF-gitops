@@ -3,6 +3,14 @@ image:
   repository: 086241318869.dkr.ecr.us-east-1.amazonaws.com/snapdf-worker
   tag: latest
 
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+
 ingress:
   enabled: false
 
