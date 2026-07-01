@@ -14,7 +14,7 @@ spec:
         template:
           metadata: {}
           spec:
-            project: default
+            project: non-prod
             destination:
               server: https://kubernetes.default.svc
     - git:
@@ -25,7 +25,7 @@ spec:
         template:
           metadata: {}
           spec:
-            project: default
+            project: prod
             destination:
               server: https://<prod-cluster-endpoint>
   template:
