@@ -21,7 +21,7 @@ spec:
         repoURL: https://github.com/ilaycohen12/snaPDF-gitops.git
         revision: HEAD
         directories:
-          - path: environments/prod/*
+          - path: environments/production/*
         template:
           metadata: {}
           spec:
