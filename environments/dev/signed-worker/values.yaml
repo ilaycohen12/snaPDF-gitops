@@ -16,6 +16,7 @@ keda:
   enabled: true
   minReplicaCount: 0
   maxReplicaCount: 3
+  cooldownPeriod: 15
   queueLength: "10"
   queueURL: "https://sqs.us-east-1.amazonaws.com/086241318869/snapdf-dev-signed"
 
